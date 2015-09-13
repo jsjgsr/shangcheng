@@ -1,0 +1,46 @@
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"  
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd"> 
+    <struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+	<constant name="struts.action.extension" value="do,action,,"></constant>
+	<constant name="struts.multipart.paeser" value="cos"></constant>
+	<constant name="struts.multipart.maxSize" value="5242880"></constant>
+    <package name="default" namespace="/" extends="struts-default" >
+        <global-results>
+            <result name="error">error.jsp</result>
+            <result name="success">success.jsp</result>
+            <result name="fail">fail.jsp</result>
+        </global-results>
+        
+        <action name="user_*" class="com.action.UserAction" method="{1}" >
+             <result name="loginSuccess">MyJsp.jsp</result>
+             <result name="userfalse">userfalse.jsp</result>
+             <result name="reg_success">login.jsp</result>
+             <result name="rename">rename.jsp</result>
+             <result name="adminloginSuccess">MyJsp.jsp</result>
+             <result name="adminloginSuccess_mainpage">admin_mianpage.jsp</result>
+             <result name="tochangerole">./manager_user/user_changerole.jsp</result>
+             <result name="login">/login.jsp</result>
+             <result name="havechongming">./havechongming.jsp</result>
+        </action>
+        <action name="pro_*" class="com.action.ProductAction" method="{1}" >
+             <result name="loginSuccess">MyJsp.jsp</result>
+             <result name="getAll">MyJsp_main.jsp</result>
+             <result name="proaddsuccess">proaddsuccess.jsp</result>
+             <result name="prodelsuccess">prodelsuccess.jsp</result>
+             <result name="proinfo">proinfo.jsp</result>
+        </action>
+        <action name="cart_*" class="com.action.CartAction" method="{1}" >
+             <result name="login">login.jsp</result>
+             <result name="cartaddsuccess">cartaddsuccess.jsp</result>
+             <result name="cartlist">cartlist.jsp</result>
+             <result name="getAll">MyJsp_main.jsp</result>
+             <result name="dingdan_info">dingdan_info.jsp</result>
+        </action>
+        <action name="dd_*" class="com.action.DingDanAction" method="{1}" >
+             <result name="dingdanlist">dingdanlist.jsp</result>
+        </action>
+      </package>
+</struts>

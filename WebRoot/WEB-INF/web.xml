@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>shangcheng</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  
+   <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+</listener>
+<context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>/WEB-INF/applicationContext.xml,classpath*:/applicationContext.xml</param-value>
+</context-param>
+
+
+
+
+	<filter>
+	
+        <filter-name>index</filter-name>
+        <filter-class>com.filter.IndexFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>index</filter-name>
+        <url-pattern>/MyJsp_main.jsp</url-pattern>
+    </filter-mapping>
+
+    <filter>  
+    <!-- filter-name可以自定义，但是要保证与下面filter-mapping中的filter-name一致 -->  
+    <!-- 这样才保证了filter和filter-mapping的一一对应 -->  
+    <filter-name>Struts2</filter-name>  
+    <!-- 这个核心拦截器FilterDispatcher可以在struts2-core包中轻松找到 -->  
+    <filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class>  
+</filter>  
+  
+<filter-mapping>  
+    <filter-name>Struts2</filter-name>  
+    <url-pattern>/*</url-pattern>  
+</filter-mapping> 
+
+	
+
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+  
+  
+  
+  
+  
+</web-app>
